@@ -83,8 +83,8 @@ $(window).load(function(){
 
   items = shuffle(items);
   for (var i=0;i<maxFilmCount;i++) {
-    if (item[i]) {
-        $("<img/>").attr("src", items[i].data.url).attr("alt", item.data.title).appendTo("#images");
+    if (items[i]) {
+        $("<img/>").attr("src", items[i].data.url).attr("alt", items[i].data.title).appendTo("#images");
     }
   }
 
