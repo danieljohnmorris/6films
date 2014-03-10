@@ -35,10 +35,6 @@ function load() {
     if (lastId) {
         json_url = json_url + "?after=t3_" + lastId;
     }
-    $.ajaxSetup({
-        async: false
-    });
-    //$("<div>" + json_url + "</div>").appendTo("#images");
     $.getJSON(json_url, function (data) {
         var children = data.data.children;
         $.each(children, function (i, item) {
@@ -55,9 +51,18 @@ function load() {
     });
 }
 
+$.ajaxSetup({
+    async: false
+});
+
 for (var i=0;i<5;i++) {
     load();
 }
+
+$.ajaxSetup({
+    async: true
+});
+
 </script>
 
 
