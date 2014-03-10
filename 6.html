@@ -13,28 +13,34 @@
     
   
   <style type="text/css">
-  @import url('http://getbootstrap.com/dist/css/bootstrap.css');
-  img {
-      margin: 0;
-      padding: 0;
-      float: left;
-      width: 50%;
-      height: 250px;
-  }
-  body {
-    padding: 0;
+    @import url('http://getbootstrap.com/dist/css/bootstrap.css');
+
+img {
     margin: 0;
-  }
+    padding: 0;
+    float: left;
+    width: 50%;
+    height: 250px;
+}
   </style>
 
   <script type="text/javascript">//<![CDATA[ 
-  var maxFilmCount = 10;
+  var maxFilmCount = 12;
+  for (var i=0;i<5;i++) {
+      load();
+  }
   </script>
   <script type="text/javascript" src="load_films.js"></script>
 
 </head>
-<body>
-  <div id="images"></div>
-</body>
+<body style="
+    padding: 0;
+    margin: 0;
+">
 
-</html>
+<div id="images">
+
+</div>
+
+
+</body></html>
