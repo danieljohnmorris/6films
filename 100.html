@@ -11,67 +11,27 @@
     
   <style type="text/css">
     @import url('http://getbootstrap.com/dist/css/bootstrap.css');
-
-img {
-    margin: 0;
-    padding: 0;
-    width: 100px;
-    height: 100px;
-    float: left;
-}
-  </style>
-  
-
-<script type="text/javascript">//<![CDATA[ 
-var lastId;
-var filmCount = 0;
-var maxFilmCount = 100;
-
-function load() {
-    var json_url = "http://www.reddit.com/r/FullMovieGifs/.json";
-    if (lastId) {
-        json_url = json_url + "?after=t3_" + lastId;
+    img {
+        margin: 0;
+        padding: 0;
+        width: 100px;
+        height: 100px;
+        float: left;
     }
-    $.getJSON(json_url, function (data) {
-        var children = data.data.children;
-        $.each(children, function (i, item) {
-            if (filmCount < maxFilmCount) {
-                filmCount = filmCount + 1;
-                $("<img/>").attr("src", item.data.url).appendTo("#images");
-            }
-        });
-        if (children && children.length > 0) {
-            lastId = children[children.length - 1].data.id;
-        } else {
-            lastId = undefined;
-        }
-    });
-}
+    body {
+      padding: 0;
+      margin: 0;
+    }
+  </style>
 
-$.ajaxSetup({
-    async: false
-});
-
-for (var i=0;i<5;i++) {
-    load();
-}
-
-$.ajaxSetup({
-    async: true
-});
-
-</script>
-
+  <script type="text/javascript">//<![CDATA[ 
+  var maxFilmCount = 100;
+  </script>
+  <script type="text/javascript" src="load_films.js"></script>
 
 </head>
-<body style="
-    padding: 0;
-    margin: 0;
-">
-  
-<div id="images">
+<body>
+  <div id="images"></div>
+</body>
 
-</div>
-
-
-</body></html>
+</html>
