@@ -28,6 +28,7 @@ img {
 $(window).load(function(){
   var lastId;
   var filmCount = 0;
+  var maxFilmCount = 10;
 
   function load() {
       var json_url = "http://www.reddit.com/r/FullMovieGifs/.json";
@@ -37,7 +38,7 @@ $(window).load(function(){
       $.getJSON(json_url, function (data) {
           var children = data.data.children;
           $.each(children, function (i, item) {
-              if (filmCount < 100) {
+              if (filmCount < maxFilmCount) {
                   filmCount = filmCount + 1;
                   $("<img/>").attr("src", item.data.url).appendTo("#images");
               }
