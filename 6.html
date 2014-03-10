@@ -29,6 +29,27 @@ $(window).load(function(){
   var lastId;
   var filmCount = 0;
   var maxFilmCount = 10;
+  var items = [];
+
+  function shuffle(array) {
+      var counter = array.length, temp, index;
+
+      // While there are elements in the array
+      while (counter > 0) {
+          // Pick a random index
+          index = Math.floor(Math.random() * counter);
+
+          // Decrease counter by 1
+          counter--;
+
+          // And swap the last element with it
+          temp = array[counter];
+          array[counter] = array[index];
+          array[index] = temp;
+      }
+
+      return array;
+  }
 
   function load() {
       var json_url = "http://www.reddit.com/r/FullMovieGifs/.json";
@@ -38,10 +59,7 @@ $(window).load(function(){
       $.getJSON(json_url, function (data) {
           var children = data.data.children;
           $.each(children, function (i, item) {
-              if (filmCount < maxFilmCount) {
-                  filmCount = filmCount + 1;
-                  $("<img/>").attr("src", item.data.url).appendTo("#images");
-              }
+            items.push(item);
           });
           if (children && children.length > 0) {
               lastId = children[children.length - 1].data.id;
@@ -62,6 +80,13 @@ $(window).load(function(){
   $.ajaxSetup({
       async: true
   });
+
+  items = shuffle(items);
+  for (var i=0;i<maxFilmCount;i++) {
+    if (item[i]) {
+        $("<img/>").attr("src", items[i].data.url).attr("alt", item.data.title).appendTo("#images");
+    }
+  }
 
 });//]]>  
 
