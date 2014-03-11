@@ -19,11 +19,18 @@
     @import url('http://getbootstrap.com/dist/css/bootstrap.css');
     @import url('flexbox.css');
 
+    body {
+      color: #ccc;
+    }
+
+    div#smallify {
+      text-align: center;
+    }
+
     div#biggify {
       width: 800px;
       font-family: 'Signika Negative', sans-serif;
       padding-top: 2em;
-      color: #ccc;
     }
     div#biggify a {
       cursor: pointer;
@@ -40,13 +47,10 @@
       line-height: 1em;
     }
     .bigtext-line1 a {
-      line-height: 1em;
-    }
-    .bigtext-line2 {
-      line-height: 1.5em;
+      line-height: 2em;
     }
     .bigtext-line2 a {
-      color: #ccc;
+      line-height: 1em;
     }
 
     div#biggify div a:hover {
@@ -76,17 +80,15 @@
 <div id="centered" class="hbox center">
   <div class="vbox center">
       <div id="container">
-          <div id="biggify" class="bigtext animate3d" style=";">
+          <div id="biggify" class="bigtext animate3d" style="width: 800px;">
             <div class="bigtext-line0">
               <a href="6.html">6 FILMS</a>
             </div>
             <div class="bigtext-line1">
-              <a href="100.html">100 100px/100px FILMS</a> (kills mobile devices)
+              <a href="100.html">100 FILMS</a> (kills mobile devices)
             </div>
             <div class="bigtext-line2">
-              <a href="http://www.reddit.com/r/FullMovieGifs/">Reddit.com/r/FullMovieGifs</a>
-            </div>
-            <div class="bigtext-line2">
+              Source: <a href="http://www.reddit.com/r/FullMovieGifs/">Reddit.com/r/FullMovieGifs</a>. 
               An evening's fun by <a href="http://twitter.com/danielmorris">@danielmorris</a>
             </div>
           </div>
